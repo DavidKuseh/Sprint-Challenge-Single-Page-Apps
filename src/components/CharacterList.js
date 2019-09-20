@@ -4,8 +4,6 @@ import styled from 'styled-components';
 
 const CharacterSection = styled.section`
   background-color: grey;
-  /* display: flex;
-  flex-direction: column; */
 
   div {
     padding: 8px;

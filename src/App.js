@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import Header from "./components/Header.js";
 import CharacterList from './components/CharacterList';
 import WelcomePage from './components/WelcomePage';
@@ -25,11 +25,13 @@ export default function App() {
   return (
     <main>
       <Header />
+        <Link to="/">Home</Link>
         <SearchForm onSearch={onSearch} searchTerm={searchTerm}/>
         <Route exact path ='/' component= {WelcomePage} />
-  <Route path ='/characters' render= {() => <CharacterList characterList={characterData.filter(char =>{
-    return char.name.includes(searchTerm);
-  })}/> } />
+        <Route path ='/characters' render= {() => 
+        <CharacterList characterList={characterData.filter(char =>{
+        return char.name.includes(searchTerm);
+        })}/> } />
     </main>
   );
 }
