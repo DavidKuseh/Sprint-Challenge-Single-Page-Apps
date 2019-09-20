@@ -1,16 +1,38 @@
 import React, { useEffect, useState } from "react";
+import CharacterCard from './CharacterCard';
+import styled from 'styled-components';
 
-export default function CharacterList() {
-  // TODO: Add useState to track data from useEffect
+const CharacterSection = styled.section`
+  background-color: grey;
 
-  useEffect(() => {
-    // TODO: Add API Request here - must run in `useEffect`
-    //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
-  }, []);
+  div {
+    padding: 8px;
+    display: flex;
+  flex-direction: column;
+  }
 
-  return (
-    <section className="character-list">
-      <h2>TODO: `array.map()` over your state here!</h2>
-    </section>
-  );
+  .character {
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+`
+export default function CharacterList(props) {
+  const { characterList } = props;
+	return (
+
+    <>  <h2>Character List</h2>
+    
+		<CharacterSection className="character-list">
+			
+			{
+				characterList.map(char => <CharacterCard key={char.id} name={char.name} species={char.species} status={char.status} image={char.image} />)
+			}
+		</CharacterSection>
+    </>
+	);
 }
