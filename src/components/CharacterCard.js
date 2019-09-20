@@ -7,13 +7,13 @@ export default function CharacterCard(props) {
 		image,
 		species,
 		status,
-	} = props.data;
+	} = props;
 	return (
 		<div className="character">
-			<div>Name: {name}</div>
-			<div>Species: {species}</div>
-			<div>Status: {status}</div>
 			<img src={image} alt=''/>
+			<h3>Name: {name}</h3>
+			<p>Species: {species}</p>
+			<p>Status: {status}</p>
 		</div>
 	);
 }
